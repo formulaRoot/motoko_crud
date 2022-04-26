@@ -1,6 +1,7 @@
 import type { Principal } from '@dfinity/principal';
 export interface Profile {
   'age' : bigint,
+  'bio' : string,
   'registration_date' : Time,
   'name' : string,
   'premium_user' : boolean,

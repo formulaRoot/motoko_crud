@@ -27,7 +27,7 @@ let users : Hashmap.HashMap<Principal, Profile> = Hashmap.HashMap<Principal, Pro
 .put() : Create 
 .get() : Read 
 .replace() : Update 
-. ddelete() : Delete 
+.delete() : Delete 
 */
 
 
@@ -36,7 +36,6 @@ public shared ({caller}) func create_profile(user : Profile) : async () {
   users.put(caller, user); 
   return; 
 }; 
-
 
 //* Read: Optional Type needed 
 public query func read_profile(principal : Principal) : async ?Profile {
@@ -47,7 +46,7 @@ public query func read_profile(principal : Principal) : async ?Profile {
 //*Update: Result type introduced - Swicth/Case. 
 public shared({caller}) func update_profile(user : Profile) : async Result.Result<Text, Text> {
   switch(users.get(caller)) {
-    case(null) return #err("There is no user profile for pricipal :  " # Principal.toText(caller));
+    case(null) return #err("There is no user profile for principal :  " # Principal.toText(caller));
     case(?user) {
       users.put(caller, user); 
       return #err("Profile modified for user with principal : " # Principal.toText(caller)); 

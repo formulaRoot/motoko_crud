@@ -2,6 +2,7 @@ export const idlFactory = ({ IDL }) => {
   const Time = IDL.Int;
   const Profile = IDL.Record({
     'age' : IDL.Nat,
+    'bio' : IDL.Text,
     'registration_date' : Time,
     'name' : IDL.Text,
     'premium_user' : IDL.Bool,

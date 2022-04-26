@@ -12,6 +12,7 @@ type Result =
 type Profile = 
  record {
    age: nat;
+   bio: text;
    name: text;
    premium_user: bool;
    registration_date: Time;

@@ -1,4 +1,9 @@
 type Time = int;
+type Result_1 = 
+ variant {
+   err: text;
+   ok;
+ };
 type Result = 
  variant {
    err: text;
@@ -13,6 +18,7 @@ type Profile =
  };
 service : {
   create_profile: (Profile) -> ();
+  delete_profile: (principal) -> (Result_1);
   read_profile: (principal) -> (opt Profile) query;
   update_profile: (Profile) -> (Result);
 }
